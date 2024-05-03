@@ -11,13 +11,11 @@
     };
   };
 
-  outputs = inputs @ {
-    systems,
-    flake-parts,
-    ...
-  }:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = import systems;
+  outputs = inputs: let
+    systems = import inputs.systems;
+  in 
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      inherit systems;
 
       perSystem = {pkgs, ...}: let
         default = pkgs.callPackage ./. {inherit systems;};
