@@ -13,7 +13,7 @@
 
   outputs = inputs: let
     systems = import inputs.systems;
-  in 
+  in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       inherit systems;
 

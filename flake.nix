@@ -5,7 +5,12 @@
     templates = {
       rust = {
         path = ./rust;
-        description = "A simple Rust template, without Naersk";
+        description = "Rust template with complete flake";
+      };
+
+      rust-shell = {
+        path = ./rust-shell;
+        description = "Rust template with only a shell";
       };
     };
   };
